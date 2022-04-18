@@ -10,6 +10,10 @@ body{
     color: darkgoldenrod;
 }
 
+h1{
+    margin: 10px 0;
+}
+
 .board{
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -21,7 +25,12 @@ body{
     border: 2px solid black;
 
     width: 80vw;
-    margin: 40px 0 20px 0;
+    margin: 20px 0;
+}
+
+.category{
+    background-color:darkgoldenrod;
+    color: darkblue;
 }
 
 .cell{
@@ -47,12 +56,16 @@ body{
     text-align: center;
 }
 
+.question{
+    font-size: 30px;
+}
+
 .result{
     color: green;
 }
 
 .response{
-    margin: 20px 0;
+    margin: 10px 0;
     display: flex;
     align-items: center;
 }
@@ -68,6 +81,10 @@ body{
 }
 
 button{
+    text-transform: uppercase;
+}
+
+button[type='submit']{
     margin:-10px;
     height: 31px;
     text-transform: uppercase;

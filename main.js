@@ -70,6 +70,7 @@ async function getRandomShowNum() {
                 };
             };
         };
+        if (showList.length < 5) resetGame();
         localStorage.setItem('showList', JSON.stringify(showList));
     } else {
         showNum = localStorage.getItem('showNum');
