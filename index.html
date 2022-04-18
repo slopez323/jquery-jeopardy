@@ -1,20 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JQuery Jeopardy</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Passion+One:wght@400;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
+
 <body>
 
+    <h1>JEOPARDY!</h1>
     <div class="score">
         <span>Your Score: </span>
         <span class="scoreValue"></span>
     </div>
-    
+
     <div class="board">
 
     </div>
@@ -35,8 +42,13 @@
         </form>
     </div>
 
+    <div class="reset">
+        <button id="resetBtn">Reset Game</button>
+    </div>
+
 
     <script src="jeopardy.json"></script>
     <script src="main.js"></script>
 </body>
+
 </html>

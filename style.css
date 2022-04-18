@@ -3,7 +3,11 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 40px;
+
+    font-family: 'Passion One', cursive;
+    text-transform: uppercase;
+    font-size: 20px;
+    color: darkgoldenrod;
 }
 
 .board{
@@ -12,9 +16,55 @@ body{
     grid-template-rows: repeat(5, 1fr);
     text-align: center;
 
+    background-color:darkblue;
+    color: darkgoldenrod;
+    border: 2px solid black;
+
     width: 80vw;
+    margin: 40px 0 20px 0;
+}
+
+.cell{
+    padding: 10px 0;
+    border: 2px solid black;
+}
+
+.cell-active:hover{
+    background-color:silver;
+}
+
+.picked{
+    background-color:silver;
 }
 
 .question, .result{
     display: none;
+    color: black;
+    text-align: center;
+}
+
+.result{
+    color: green;
+}
+
+.response{
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+}
+
+#userAnswer{
+    font-family: 'Passion One', cursive;
+    text-transform: uppercase;
+    height: 25px;
+    margin-left: 10px;
+    font-size: 20px;
+    color: black;
+    
+}
+
+button{
+    margin:-10px;
+    height: 31px;
+    text-transform: uppercase;
 }
