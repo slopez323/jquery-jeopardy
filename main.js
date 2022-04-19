@@ -136,7 +136,6 @@ function checkAnswer() {
         answer = answer.replace(/ *\([^)]*\) */g, '');
         answer = answer.replace(/&/g, 'and');
         answer = answer.replace(/-/g, ' ');
-        console.log(answer);
 
         let userAnswer = String($('#userAnswer').val()).toLowerCase();
         userAnswer = userAnswer.replace(/[(),.'"]/g, '');

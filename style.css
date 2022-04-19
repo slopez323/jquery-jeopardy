@@ -17,10 +17,16 @@ h1{
     font-size: 45px;
 }
 
+.score{
+    color: darkblue;
+    font-family: 'Passion One', cursive;
+    font-size: 20px;
+}
+
 .board{
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(6, 1fr);
+    grid-template-rows: 1.5fr repeat(5, 1fr);
     text-align: center;
 
     background-color:darkblue;
@@ -28,7 +34,7 @@ h1{
     border: 2px solid black;
 
     width: 80vw;
-    margin: 20px 0;
+    margin: 20px 0 10px 0;
 }
 
 .category{
@@ -131,5 +137,8 @@ button[type='submit']:hover{
     }
     body{
         font-size: 12px;
+    }
+    .question{
+        font-size: 18px;
     }
 }
