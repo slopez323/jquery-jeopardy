@@ -4,14 +4,17 @@ body{
     justify-content: center;
     align-items: center;
 
-    font-family: 'Passion One', cursive;
+    font-family: 'Oswald', sans-serif;
     text-transform: uppercase;
-    font-size: 20px;
+    font-size: 18px;
     color: darkgoldenrod;
 }
 
 h1{
-    margin: 10px 0;
+    margin: 0 0 10px 0;
+    font-family: 'Passion One', cursive;
+    text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+    font-size: 45px;
 }
 
 .board{
@@ -44,10 +47,20 @@ h1{
 
 .cell-active:hover{
     background-color:silver;
+    cursor: pointer;
 }
 
 .picked{
     background-color:silver;
+}
+
+.category:hover{
+    background-color: darkgoldenrod;
+    cursor: auto;
+}
+
+.picked:hover{
+    cursor: auto;
 }
 
 .question, .result{
@@ -57,7 +70,7 @@ h1{
 }
 
 .question{
-    font-size: 30px;
+    font-size: 25px;
 }
 
 .result{
@@ -71,21 +84,52 @@ h1{
 }
 
 #userAnswer{
-    font-family: 'Passion One', cursive;
+    font-family: 'Oswald', sans-serif;
     text-transform: uppercase;
     height: 25px;
     margin-left: 10px;
     font-size: 20px;
     color: black;
-    
+}
+
+#userAnswer:focus{
+   outline-color: darkgoldenrod;
 }
 
 button{
     text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    border: none;
+    height: 40px;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+#resetBtn:hover{
+    font-size: 15px;
 }
 
 button[type='submit']{
     margin:-10px;
     height: 31px;
-    text-transform: uppercase;
+    color: darkblue;
+    background-color: darkgoldenrod;
+}
+button[type='submit']:hover{
+    background-color: darkblue;
+    color: darkgoldenrod;
+}
+
+@media (max-width: 767px){
+    .cell{
+        padding: 0;
+    }
+    .board{
+        width: 90vw;
+    }
+    body{
+        font-size: 12px;
+    }
 }
