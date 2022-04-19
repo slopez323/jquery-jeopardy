@@ -59,11 +59,10 @@ async function getRandomShowNum() {
         let filtered = list.filter(x => x.showNumber == showNum);
         filtered = filtered.filter(x => x.round == 'Jeopardy!');
         let categories = _.groupBy(filtered, 'category');
-        console.log(categories);
         let amounts = ['$200', '$400', '$600', '$800', '$1,000'];
         for (let key in categories) {
-            if (categories[key].length == 5) {
-                const values = categories[key].map(item => item.value);
+            if (categories[key].length >= 5) {
+                let values = categories[key].map(item => item.value);
                 if (amounts.every(amount => values.includes(amount))) {
                     showList.push(categories[key]);
                     if (showList.length == 5) break;
@@ -93,7 +92,8 @@ function getQuestion(value, cat) {
     let chosenAnswer = chosen.answer;
 
     $('.result').hide();
-    $('.question').text(chosenQuestion);
+    $('.question').empty();
+    $('.question').append(chosenQuestion);
     $('.question').show();
 
     pickedQuestions.push({ 'question': chosenQuestion, 'answer': chosenAnswer, 'value': value.substring(1).replace(',', '') });
@@ -129,13 +129,28 @@ $('.response').on('submit', function (e) {
 
 function checkAnswer() {
     if ($('.question').text() !== '') {
-        if ($('#userAnswer').val().toLowerCase() == pickedQuestions[pickedQuestions.length - 1].answer.toLowerCase()) {
+        let answer = String(pickedQuestions[pickedQuestions.length - 1].answer).toLowerCase();
+        answer = answer.substring(0,2) == 'a ' ? answer.substring(2) : answer.substring(0,3) == 'an ' ? answer.substring(3) : answer.substring(0,4) == 'the ' ? answer.substring(4) : answer;
+        answer = answer.replace(/[,.'"]/g, '');
+        answer = answer.replace(/ *\([^)]*\) */g, '');
+        answer = answer.replace(/&/g, 'and');
+        answer = answer.replace(/-/g, ' ');
+        console.log(answer);
+
+        let userAnswer = String($('#userAnswer').val()).toLowerCase();
+        userAnswer = userAnswer.replace(/[(),.'"]/g, '');
+        userAnswer = userAnswer.replace(/&/g, 'and');
+        userAnswer = userAnswer.replace(/-/g, ' ');
+
+        if (userAnswer.includes(answer)) {
             $('.result').text('Correct!');
-            score += +pickedQuestions[pickedQuestions.length - 1].value;
+            score = Number(score) + Number(pickedQuestions[pickedQuestions.length - 1].value);
+            $('.result').css('color', '');
             $('.scoreValue').text(`$${score}`);
             localStorage.setItem('score', score);
         } else {
             $('.result').text(`Incorrect.  Correct answer was: ${pickedQuestions[pickedQuestions.length - 1].answer}`);
+            $('.result').css('color', 'red');
         }
         $('.result').show();
         $('.question').text('');
