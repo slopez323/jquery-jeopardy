@@ -42,6 +42,7 @@ async function setup() {
     if (localStorage.getItem('status') == 'question') {
         $('.question').append(pickedQuestions[pickedQuestions.length - 1].question);
         $('.question').show();
+        $('.cell').removeClass('cell-active');
         $('#userAnswer').prop('disabled', false);
         $('#userAnswer').focus();
     };
