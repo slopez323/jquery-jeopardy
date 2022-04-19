@@ -40,7 +40,7 @@ async function setup() {
     $('#userAnswer').prop('disabled', true);
 
     if (localStorage.getItem('status') == 'question') {
-        $('.question').text(pickedQuestions[pickedQuestions.length - 1].question);
+        $('.question').append(pickedQuestions[pickedQuestions.length - 1].question);
         $('.question').show();
         $('#userAnswer').prop('disabled', false);
         $('#userAnswer').focus();
